@@ -54,7 +54,8 @@ csock = storm.net.udpsocket(cport,
 -- send echo on each button press
 client = function()
    blu:flash(1)
-   local msg = string.format("0x%04x says count=%d", storm.os.nodeid(), count)
+   local time = storm.os.now(storm.os.SHIFT_0)
+   local msg = string.format("%d", time)
    print("send:", msg)
    -- send upd echo to link local all nodes multicast
    storm.net.sendto(csock, msg, "ff02::1", 7) 
