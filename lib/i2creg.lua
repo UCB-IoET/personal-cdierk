@@ -87,7 +87,11 @@ function REG:w(reg, values)
     if (rv ~= storm.i2c.OK) then
         print ("ERROR ON I2C: ",rv)
     end
+<<<<<<< HEAD
 >>>>>>> 82896052d15746bfa7bd9258c581db62b20a6195
+=======
+    return 1
+>>>>>>> d2f7de8428d1a0ef6d729e0671f624a0a17f7e8a
 end
 
 return REG
