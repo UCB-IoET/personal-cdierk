@@ -18,14 +18,20 @@ end
 
 
 storm.bl.enable("unused", onconnect, function()
-   local svc_handle = storm.bl.addservice(0x1337)
+   --[[local svc_handle = storm.bl.addservice(0x1337)
    char_handle = storm.bl.addcharacteristic(svc_handle, 0x1338, function(x)
        print ("received: ",x)
-   end)
-   local svc_handle2 = storm.bl.addservice(0x2727)
-   char_handle2 = storm.bl.addcharacteristic(svc_handle, 0x2728, function(x)
+   end)]]--
+   local svc_handle = storm.bl.addservice(0x1337)
+   char_handle = storm.bl.addcharacteristic(svc_handle, 0x1338, function(x)
        --turn led on
-	storm.io.set(x, storm.io.D2)
+	print ("received: ", x)
+	if (x == "1") then 
+		storm.io.set(1, storm.io.D2)
+	end
+	if (x == "0") then
+		storm.io.set(0, storm.io.D2)
+	end
    end)
 end)
 cord.enter_loop()
